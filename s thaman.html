@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+</head>
+<body>
+    <h3>🎶 S Thaman</h3>
+    <a href="index.html"></a>
+
+  <!-- Audio Player (Give it correct ID and no typo) -->
+  <audio id="audioPlayer" controls>
+    <source src="Chaleya.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <br><br>
+
+  <!-- Buttons to Control -->
+  <button onclick="playSong()">▶️ Play</button>
+  <button onclick="pauseSong()">⏸️ Pause</button>
+  <button onclick="playNext()">⏭️ Next</button>
+
+  <script>
+    // ✅ Full song list
+    const songs = [
+      "Butta Bomma.mp3",
+      "Ramuloo Ramulaa.mp3",
+      "Samajavaragamana.mp3",
+      "Sir Osthara.mp3",
+      "Mama O Chandamama.mp3",
+      "Sweety Sweety.mp3",
+      "Kajalu Chelliva.mp3",
+      "Ninnila Ninnila.mp3",
+      "Chuda Sakagunnave.mp3",
+      "Champakamala.mp3",
+      "Kurchi Madathapetti.mp3",
+      "Dum Masala.mp3",
+      "Mawaa Enthaina.mp3",
+      "Oh My Baby.mp3",
+      "Dabidi Dibidi.mp3",
+      "Ranjithame.mp3",
+      "Thee Thalapathy.mp3",
+      "Kalaavathi.mp3",
+      "My Dear Markandeya.mp3",
+      "Nee Chuttu Chuttu.mp3"
+     
+    ];
+
+    let currentIndex = 0;
+    const audio = document.getElementById("audioPlayer");
+
+    function playSong() {
+      audio.play();
+    }
+
+    function pauseSong() {
+      audio.pause();
+    }
+
+    function playNext() {
+      currentIndex = (currentIndex + 1) % songs.length;
+      audio.src = songs[currentIndex];
+      audio.load();
+      audio.play();
+    }
+
+    // ✅ Auto-play next song when current song ends
+    audio.addEventListener("ended", function () {
+      playNext();
+    });
+  </script>
+  <ul>
+      <li>Butta Bomma</li>
+      <li>Ramuloo Ramulaa</li>
+      <li>Samajavaragamana</li>
+      <li>Sir Osthara</li>
+      <li>Mama O Chandamama</li>
+      <li>Sweety Sweety</li>
+      <li>Kajalu Chelliva</li>
+      <li>Ninnila Ninnila</li>
+      <li>Chuda Sakagunnave</li>
+      <li>Champakamala</li>
+      <li>Kurchi Madathapetti</li>
+      <li>Dum Masala</li>
+      <li>Mawaa Enthaina</li>
+      <li>Oh My Baby </li>
+      <li>Dabidi Dibidi</li>
+      <li>Ranjithame</li>
+      <li>Thee Thalapathy</li>
+      <li>NaaNaa Hyraanaa</li>
+      <li>Kalaavathi</li>
+      <li>My Dear Markandeya </li>
+      <li>Nee Chuttu Chuttu </li>
+
+
+
+</body>
+</html>
+
+</body>
+</html>

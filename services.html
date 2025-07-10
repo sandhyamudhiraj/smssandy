@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+</head>
+<body>
+
+<h2>🎶Rahul Sipligunj</h2>
+  <a href="index.html"></a>
+
+<audio id="audioPlayer" controls>
+    <source src="College Bulloda.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<br><br>
+
+<button onclick="playSong()">▶️ Play</button>
+<button onclick="pauseSong()">⏸️ Pause</button>
+<button onclick="playNext()">⏭️ Next</button>
+
+<script>
+    // ✅ Full song list
+    const songs = [
+        "College Bulloda.mp3",
+        "Nippai Ragile.mp3",
+        "Hey Indu.mp3",
+        "America Poyi.mp3",
+        "Oho Jambiya.mp3",
+        "Thakita Thatika.mp3",
+        "Glassmates.mp3",
+        "Habibi Jilebi.mp3",
+        "Osi Pellama.mp3",
+    ];
+    let currentIndex = 0;
+    const audio = document.getElementById("audioPlayer");
+
+    function playSong() {
+        audio.play();
+    }
+
+    function pauseSong() {
+        audio.pause();
+    }
+
+    function nextsong(){
+        audio.next();
+    }
+
+    function playNext() {
+        currentIndex = (currentIndex + 1) % songs.length;
+        audio.src = songs[currentIndex];
+        audio.load();
+        audio.play();
+    }
+
+    // ✅ Auto play next song when current one ends
+    audio.addEventListener("ended", function () {
+        playNext();
+    });
+</script>
+
+<!-- Optional: display playlist -->
+<ul>
+    <li>College Bulloda</li>
+    <li>Nippai Ragile</li>
+    <li>Hey Indu</li>
+    <li>America Poyi</li>
+    <li>Oho Jambiya</li>
+    <li>Thakita Thatika </li>
+    <li>Glassmates</li>
+    <li>Habibi Jilebi</li>
+    <li>Osi Pellama</li>
+</body>
+</html>

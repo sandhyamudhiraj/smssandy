@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+</head>
+<body>
+
+<h2>🎶karthik</h2>
+  <a href="index.html"></a>
+
+<audio id="audioPlayer" controls>
+    <source src="Arare Arare.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<br><br>
+
+<button onclick="playSong()">▶️ Play</button>
+<button onclick="pauseSong()">⏸️ Pause</button>
+<button onclick="playNext()">⏭️ Next</button>
+
+<script>
+    // ✅ Full song list
+    const songs = [
+
+];
+
+
+    let currentIndex = 0;
+    const audio = document.getElementById("audioPlayer");
+
+    function playSong() {
+        audio.play();
+    }
+
+    function pauseSong() {
+        audio.pause();
+    }
+
+    function nextsong(){
+        audio.next();
+    }
+
+    function playNext() {
+        currentIndex = (currentIndex + 1) % songs.length;
+        audio.src = songs[currentIndex];
+        audio.load();
+        audio.play();
+    }
+
+    // ✅ Auto play next song when current one ends
+    audio.addEventListener("ended", function () {
+        playNext();
+    });
+</script>
+
+<!-- Optional: display playlist -->
+<ul>
+   <li> Rang Rang Rangeela</li>
+   <li>Chinni Jeevithame</li>
+   <li>Kismat Title Song</li>
+   <li>Naa Manassu Aashale</li>
+   <li>The Liger Hunt Theme</li>
+   <li>Pakka Commercial Title Song</li>
+   <li>Chal Chal Chalo</li>
+   <li>Bujji Meka</li>
+   <li>Anandam</li>
+   <li>Pelli Sanda</li>
+   <li>Dosti</li>
+   <li>I Hate My Life'u</li>
+   <li>Kadhulu Kadhulu</li>
+   <li>Rambha Oorvashi Menaka</li>
+   <li>Nallamala Theme</li>
+   <li>Life Antene</li>
+   <li>Emaindo Emo</li>
+   <li>Samayam Jaripe</li>
+   <li>College Song</li>
+   <li>Thipparaa Meesam Title Track</li>
+   <li>La la la</li>
+   <li>Evaro Evaro</li>
+   <li>Everest Anchuna</li>
+   <li>Dhan Dhan</li>
+   <li>Welcome Back to Love</li>
+   <li>Fidaa</li>
+   <li>Adadhante</li>
+   <li>Nee Kallalona</li>
+   <li>Babu Baga Busy Title Song</li>
+   <li>Tharumu Tharumu</li>
+   <li>Life Ante</li>
+   <li>Dosalu Posi Desanni</li>
+   <li>Emito Ee Kshanam</li>
+   <li>Gunde Aagi Pothaande</li>
+   <li>Ola Ola</li>
+   <li>Chudandi Saaru</li>
+   <li>Inthakante Vere</li>
+   <li>Nandu I Love You</li>
+   <li>Shambore</li>
+   <li>Tara</li>
+   <li>Kotha Kotha Oohalenno</li>
+   <li>Bokkettene</li>
+   <li>Koyila</li>
+   <li>Yathana</li>
+   <li>Ayya</li>
+   <li>Rabba</li>
+   <li>One Love</li>
+</ul>
+</body>
+</html>
+
+
