@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+</head>
+<body>
+    <h3>🎶Anirudh Ravichander</h3>
+    <a href="index.html"></a>
+
+  <!-- Audio Player (Give it correct ID and no typo) -->
+  <audio id="audioPlayer" controls>
+    <source src="Chaleya.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <br><br>
+
+  <!-- Buttons to Control -->
+  <button onclick="playSong()">▶️ Play</button>
+  <button onclick="pauseSong()">⏸️ Pause</button>
+  <button onclick="playNext()">⏭️ Next</button>
+
+  <script>
+    // ✅ Full song list
+    const songs = [
+      "Chaleya.mp3",
+      "Chuttamall.mp3",
+      "Fear Song.mp3",
+      "Hukum – Thalaivar Alappara.mp3",
+      "Kaavaalaa.mp3",
+      "Vaathi Coming Master.mp3",
+      "Arabic Kuthu (Halamithi Habibo).mp3",
+      "Naa Ready.mp3",
+      "Why This Kolaveri Di.mp3",
+      "Quit Pannuda.mp3",
+      "Nee Paartha Vizhigal.mp3",
+      "Pathikichu.mp3",
+      "Manasilaayo.mp3",
+      "Dheema.mp3",
+      "Zinda Banda.mp3",
+      "Dheere Dheere.mp3"
+    ];
+
+    let currentIndex = 0;
+    const audio = document.getElementById("audioPlayer");
+
+    function playSong() {
+      audio.play();
+    }
+
+    function pauseSong() {
+      audio.pause();
+    }
+
+    function playNext() {
+      currentIndex = (currentIndex + 1) % songs.length;
+      audio.src = songs[currentIndex];
+      audio.load();
+      audio.play();
+    }
+
+    // ✅ Auto-play next song when current song ends
+    audio.addEventListener("ended", function () {
+      playNext();
+    });
+  </script>
+  <ul>
+    <li>Chaleya</li>
+    <li>Chuttamalle</li>
+    <li>Fear Song</li>
+    <li>Hukum – Thalaivar Alappara</li>
+    <li>Kaavaalaa</li>
+    <li>Vaathi Coming</li>
+    <li>Arabic Kuthu (Halamithi Habibo)</li>
+    <li>Naa Ready</li>
+    <li>Why This Kolaveri Di</li>
+    <li>Quit Pannuda</li>
+    <li>Nee Paartha Vizhigal</li>
+    <li>Pathikichu</li>
+    <li>Manasilaayo</li>
+    <li>Dheema</li>
+    <li>Zinda Banda</li>
+    <li>Dheere Dheere</li>
+  </ul>
+</body>
+</html>
+
+</body>
+</html>
