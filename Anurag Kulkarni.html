@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+</head>
+<body>
+
+<h2>🎶Anurag Kulkarni</h2>
+  <a href="index.html"></a>
+
+<audio id="audioPlayer" controls>
+    <source src="Arare Arare.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<br><br>
+
+<button onclick="playSong()">▶️ Play</button>
+<button onclick="pauseSong()">⏸️ Pause</button>
+<button onclick="playNext()">⏭️ Next</button>
+
+<script>
+    // ✅ Full song list
+    const songs = [
+
+];
+
+
+    let currentIndex = 0;
+    const audio = document.getElementById("audioPlayer");
+
+    function playSong() {
+        audio.play();
+    }
+
+    function pauseSong() {
+        audio.pause();
+    }
+
+    function nextsong(){
+        audio.next();
+    }
+
+    function playNext() {
+        currentIndex = (currentIndex + 1) % songs.length;
+        audio.src = songs[currentIndex];
+        audio.load();
+        audio.play();
+    }
+
+    // ✅ Auto play next song when current one ends
+    audio.addEventListener("ended", function () {
+        playNext();
+    });
+</script>
+
+<!-- Optional: display playlist -->
+<ul>
+    <li>Pillaa Raa</li>
+    <li>Ramuloo Ramulaa</li>
+    <li>Sirivennela</li>
+    <li>Samayama</li>
+    <li>Choosi Chudangane</li>
+    <li>Asha Pasham</li>
+    <li>Hey Rangule</li>
+    <li>Kaanunna Kalyanam</li>
+    <li>Premalo</li>
+    <li>Aagi Aagi</li>
+    <li>Kallolam</li>
+    <li>Mellaga Tellarindoi</li>
+    <li>Mira Mira Meesam </li>
+    <li>Vaaru Veeru</li>
+    <li>Paisa Vasool</li>
+    <li>Mahanati</li>
+    <li>Hyper – Baby Doll</li>
+    <li>Suya Suya</li>
+    <li>Gold Rangu Pilla </li>
+    <li>Adhi Dha Surprisu </li>
+    <li>Namo Namah Shivaya </li>
+    <li>Arere Aakasham</li>
+    <li>Tholi Tholi</li>
+    <li>Pranavalaya</li>
+    <li>Sirivennela</li>
+    <li>Aagi Aagi</li>
+ 
+</ul>
+</body>
+</html>
+
+

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+</head>
+<body>
+
+<h2>🎶sid sriram</h2>
+  <a href="index.html"></a>
+
+<audio id="audioPlayer" controls>
+    <source src="Srivalli.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<br><br>
+
+<button onclick="playSong()">▶️ Play</button>
+<button onclick="pauseSong()">⏸️ Pause</button>
+<button onclick="playNext()">⏭️ Next</button>
+
+<script>
+    // ✅ Full song list
+    const songs = [
+        "Srivalli.mp3",
+        "Samajavaragamana.mp3",
+        "NagumoHridayam.mp3",
+        "Inkem Inkem Inkem Kaavaale.mp3",
+        "Nagumomu Thaarale.mp3",
+        "Adiga adiga.mp3",
+        "mella mellagaa.mp3",
+        "Leharaayi.mp3",
+        "Kushi.mp3",
+        "Yedhaki Oka Gaayam.mp3",
+        "Na Roja Nuvve.mp3",
+        "Aradhya.mp3",
+        "Undiporaadhey.mp3",
+    ];
+
+    let currentIndex = 0;
+    const audio = document.getElementById("audioPlayer");
+
+    function playSong() {
+        audio.play();
+    }
+
+    function pauseSong() {
+        audio.pause();
+    }
+
+    function nextsong(){
+        audio.next();
+    }
+
+    function playNext() {
+        currentIndex = (currentIndex + 1) % songs.length;
+        audio.src = songs[currentIndex];
+        audio.load();
+        audio.play();
+    }
+
+    // ✅ Auto play next song when current one ends
+    audio.addEventListener("ended", function () {
+        playNext();
+    });
+</script>
+
+<!-- Optional: display playlist -->
+<ul>
+    <li>Samajavaragamana</li>
+    <li>Srivalli</li>
+    <li>Nagumomu</li>
+    <li>Inkem inkem inkem kaavaal</li>
+    <li>Nagumomu Thaarale</li>
+    <li>Adiga adiga</li>
+    <li>mella mellagaa</li>
+    <li>leha raayi</li>
+    <li>Kushi</li>
+    <li>Yedhaki Oka Gaayam</li>
+    <li>Na Roja Nuvve</li>
+    <li>Aradhya</li>
+    <li>Undiporaadhey</li>
+    </li>
+  </ul>
+</body>
+</html>
