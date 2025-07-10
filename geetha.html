@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+</head>
+<body>
+
+<h2>🎶Geetha Madhuri</h2>
+  <a href="index.html"></a>
+
+<audio id="audioPlayer" controls>
+    <source src="Ninne Ninne Kora.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<br><br>
+
+<button onclick="playSong()">▶️ Play</button>
+<button onclick="pauseSong()">⏸️ Pause</button>
+<button onclick="playNext()">⏭️ Next</button>
+
+<script>
+    // ✅ Full song list
+    const songs = [
+        
+        "Ninne Ninne Kora.mp3",
+        "Chamka Chamka.mp3",
+        "Paravaledu.mp3",
+        "Puduthune Uyyala.mp3",
+        "Magallu.mp3",
+        "Ettantee Mogudu.mp3",
+        "We Love Bad Boys.mp3",
+        "Top Lesi Poddi.mp3",
+        "Raaye Raaye.mp3",
+        "Darlingey.mp3",
+        "Ittage Recchipodham.mp3",
+        "Pakka Local.mp3",
+        "Door Number Okati.mp3",
+        "Deo Deo.mp3",
+        "Akkada Vunnavadu.mp3",
+        "Mahanubhavudu.mp3",
+        "Dibiri Dibiri.mp3",
+        "Jorse Jorse.mp3",
+        "Na Kosam.mp3",
+        "Melikalu.mp3",
+        "Konte Choopulu.mp3",
+        "Dhimmathirigae.mp3",
+        "Pandaga Chesko.mp3",
+        "Aibaaboi Nee Choopu.mp3",
+        "Dillaku Dillaku.mp3",
+        "Telugammayi.mp3",
+
+    ];
+
+    let currentIndex = 0;
+    const audio = document.getElementById("audioPlayer");
+
+    function playSong() {
+        audio.play();
+    }
+
+    function pauseSong() {
+        audio.pause();
+    }
+
+    function nextsong(){
+        audio.next();
+    }
+
+    function playNext() {
+        currentIndex = (currentIndex + 1) % songs.length;
+        audio.src = songs[currentIndex];
+        audio.load();
+        audio.play();
+    }
+
+    // ✅ Auto play next song when current one ends
+    audio.addEventListener("ended", function () {
+        playNext();
+    });
+</script>
+
+<!-- Optional: display playlist -->
+<ul>
+    <li>Ninne Ninne Kora</li>
+    <li>Chamka Chamka</li>
+    <li>Paravaledu</li>
+    <li>Puduthune Uyyala</li>
+    <li>Magallu</li>
+    <li>Ettantee Mogudu</li>
+    <li>We Love Bad Boys</li>
+    <li>Top Lesi Poddi</li>
+    <li>Raaye Raaye</li>
+    <li>Darlingey</li>
+    <li>Ittage Recchipodham</li>
+    <li>Pakka Local</li>
+    <li>Door Number Okati</li>
+    <li>Deo Deo</li>
+    <li>Akkada Vunnavadu</li>
+    <li>Mahanubhavudu</li>
+    <li>Dibiri Dibiri</li>
+    <li>Jorse Jorse</li>
+    <li>Na Kosam</li>
+    <li>Melikalu</li>
+    <li>Konte Choopulu</li>
+    <li>Dhimmathirigae</li>
+    <li>Pandaga Chesko</li>
+    <li>Aibaaboi Nee Choopu</li>
+    <li>Dillaku Dillaku</li>
+
+</ul>
+</body>
+</html>
+
