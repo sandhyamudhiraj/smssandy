@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+</head>
+<body>
+
+  <h2>🎶Revanth</h2>
+  <a href="index.html"></a>
+
+<audio id="audioPlayer" controls>
+    <source src="I Wanna Fly.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<br><br>
+
+<button onclick="playSong()">▶️ Play</button>
+<button onclick="pauseSong()">⏸️ Pause</button>
+<button onclick="playNext()">⏭️ Next</button>
+
+<script>
+    // ✅ Full song list
+    const songs = [
+
+    "I Wanna Fly.mp3",
+    "Luckkanna Mate Nillu.mp3",
+    "Oopiri Aaguthunnadey.mp3",
+    "Konchem Konchem.mp3",
+    "Bholaa Mania.mp3",
+    "halla.mp3",
+    "Nippulanti Nirudyogi.mp3",
+    "I Just Love You Baby.mp3",
+    "Ambadhari.mp3",
+    "Ney Ready.mp3",
+    "One Boy One Girl.mp3",
+    "Vayyari Kalahamsika.mp3",
+    "Vayyari Kalahamsika.mp3",
+    "Seetimaarr.mp3",
+    "Nee Kosam.mp3",
+    "Kalalake Kanulochina.mp3",
+    "Tholi Tholiga Tholakari.mp3",
+    "Krishnashtami.mp3",
+    "Gajibiji Gathukula Roaddu.mp3",
+    "What The Life.mp3",
+    "Saana Kastam.mp3",
+    "Bus Stop (Title Song).mp3",
+    "Raja The Great.mp3",
+    "Thikka.mp3",
+    "Gang (Title Track).mp3"
+    ];
+
+    let currentIndex = 0;
+    const audio = document.getElementById("audioPlayer");
+
+    function playSong() {
+        audio.play();
+    }
+
+    function pauseSong() {
+        audio.pause();
+    }
+
+    function nextsong(){
+        audio.next();
+    }
+
+    function playNext() {
+        currentIndex = (currentIndex + 1) % songs.length;
+        audio.src = songs[currentIndex];
+        audio.load();
+        audio.play();
+    }
+
+    // ✅ Auto play next song when current one ends
+    audio.addEventListener("ended", function () {
+        playNext();
+    });
+</script>
+
+<!-- Optional: display playlist -->
+<ul>
+    <li>I Wanna Fly</li>
+    <li>Luckkanna Mate Nillu</li>
+    <li>Oopiri Aaguthunnadey</li>
+    <li>Konchem Konchem</li>
+    <li>Bholaa Mania</li>
+    <li>Hallaa Machaare</li>
+    <li>Nippulanti Nirudyogi</li>
+    <li>I Just Love You Baby</li>
+    <li>Amba Dari</li>
+    <li>Ney Ready</li>
+    <li>One Boy One Girl</li>
+    <li>Vayyari Kalahamsika</li>
+    <li>Seetimaarr</li>
+    <li>Neekosam</li>
+    <li>Kalalake Kanulochina</li>
+    <li>Vennelaina Cheekataina</li>
+    <li>Tholi Tholi Tholakari</li>
+    <li>Krishnashtami</li>
+    <li>Gajibiji Gathukula Roaddu</li>
+    <li>what the life</li>
+    <li>Saana Kastam</li>
+    <li>Bus Stop (Kalalake Kanulochina)</li>
+    <li>Raja The Great </li>
+    <li>Thikka</li>
+    <li>Gang Title Song</li>
+
+</ul>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+</head>
+<body>
+
+<h2>🎶karthik</h2>
+  <a href="index.html"></a>
+
+<audio id="audioPlayer" controls>
+    <source src="Arare Arare.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<br><br>
+
+<button onclick="playSong()">▶️ Play</button>
+<button onclick="pauseSong()">⏸️ Pause</button>
+<button onclick="playNext()">⏭️ Next</button>
+
+<script>
+    // ✅ Full song list
+    const songs = [
+        "Arare Arare.mp3",
+        "Athiloka Sundari.mp3",
+        "Chudodantunna.mp3",
+        "Devatha.mp3",
+        "Em Chepanu.mp3",
+        "Nijanga Nenenaa.mp3",
+        "Ninnu Kori.mp3",
+        "Unnattundi Gundey.mp3",
+        "Niluvadhamu Ninu Epudaina.mp3",
+        "Oh My Friend.mp3",
+        "Prathi Roju Pandaga Roje.mp3",
+        "Thanu Gorantha.mp3",
+        "Yedhuta Nilichindi Choodu.mp3",
+        "Yevvaro.mp3"
+    ];
+
+    let currentIndex = 0;
+    const audio = document.getElementById("audioPlayer");
+
+    function playSong() {
+        audio.play();
+    }
+
+    function pauseSong() {
+        audio.pause();
+    }
+
+    function nextsong(){
+        audio.next();
+    }
+
+    function playNext() {
+        currentIndex = (currentIndex + 1) % songs.length;
+        audio.src = songs[currentIndex];
+        audio.load();
+        audio.play();
+    }
+
+    // ✅ Auto play next song when current one ends
+    audio.addEventListener("ended", function () {
+        playNext();
+    });
+</script>
+
+<!-- Optional: display playlist -->
+<ul>
+    <li>Arare Arare</li>
+    <li>Sarainodu</li>
+    <li>Chudodantunna</li>
+    <li>Devatha</li>
+    <li>Em Chepanu</li>
+    <li>Nijanga Nenenaa</li>
+    <li>Ninnu Kori</li>
+    <li>Unnattundi Gundey</li>
+    <li>Niluvadhamu Ninu Epudaina</li>
+    <li>Oh My Friend </li>
+    <li>Prathi Roju Pandaga Roje</li>
+    <li>Thanu Gorantha</li>
+    <li>Yedhuta Nilichindi Choodu</li>
+    <li>Yevvaro</li>
+
+    
+</ul>
+</body>
+</html>
+
+
